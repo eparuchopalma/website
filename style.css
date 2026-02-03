@@ -15,6 +15,15 @@ h1, h2, h3, h4 {
   font-style: normal;
 }
 
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
 body, button {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -38,15 +47,44 @@ body, button {
 
 .title {
   font-size: 9.6rem;
-  text-align: right;
   grid-column: 1 / 2;
 }
 
 .subtitle {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 16px;
   font-size: 2.4rem;
   text-align: right;
   font-weight: 400;
   grid-column: 1 / 2;
+  position: relative;
+}
+
+.subtitle::before {
+  content: ".";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  left: -16px;
+  top: 16px;
+  display: inline-block;
+  color: transparent;
+  background-color: black;
+  border-radius: 1px;
+}
+
+.subtitle::after {
+  content: ".";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  right: -16px;
+  top: 16px;
+  display: inline-block;
+  color: transparent;
+  background-color: black;
+  border-radius: 1px;
 }
 
 .paragraph {
@@ -98,11 +136,6 @@ body, button {
   bottom: 0;
 }
 
-.picture {
-  width: 100%;
-  height: 100%;
-}
-
 .section {
   height: 100vh;
   padding: 32px;
@@ -117,9 +150,12 @@ body, button {
 .label-container {
   display: flex;
   flex-wrap: wrap;
-  height: 100px;
   gap: 12px;
   grid-column: 1 / 2;
+}
+
+.label-container_mt {
+  margin-top: 12px;
 }
 
 .label {
@@ -132,4 +168,153 @@ body, button {
   background-color: black;
   color: white;
   font-size: 1.6rem;
+}
+
+.project-titles {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.project-titles::before {
+  content: ".";
+  color: transparent;
+  width: 2px;
+  left: calc(50% - 2px);
+  top: 0;
+  height: 12px;
+  position: absolute;
+  background-color: black;
+}
+
+.project-titles::after {
+  content: ".";
+  color: transparent;
+  width: 2px;
+  left: calc(50% - 2px);
+  bottom: 0;
+  height: 12px;
+  position: absolute;
+  background-color: black;
+}
+
+.project-title {
+  font-size: 4.4rem;
+  position: relative;
+}
+
+.project-title_center::before {
+  content: ".";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  left: -32px;
+  top: 32px;
+  display: inline-block;
+  color: transparent;
+  background-color: black;
+  border-radius: 1px;
+}
+
+.project-title_center::after {
+  content: ".";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  right: -32px;
+  top: 32px;
+  display: inline-block;
+  color: transparent;
+  background-color: black;
+  border-radius: 1px;
+}
+
+.project-title_left, .project-title_right {
+  opacity: .4;
+  transition: opacity .2s;
+}
+
+.project-title_left:hover, .project-title_right:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.project-covers {
+  margin: 12px 0 16px;
+  width: 100%;
+  height: 50%;
+  border: 2px dashed black;
+  display: flex;
+  justify-content: center;
+}
+
+.project-cover {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  position: relative;
+}
+
+.project-cover_center {
+  transform: scale(1.4);
+  z-index: 10;
+}
+
+.project-cover_left {
+  filter: grayscale(1);
+  transform: rotate(-5deg) translate(200px, 20px);
+  transition: all .3s;
+}
+
+.project-cover_right {
+  filter: grayscale(1);
+  transform: rotate(5deg) translate(-200px, 20px);
+  transition: all .3s;
+}
+
+.project-cover_left:hover, .project-cover_right:hover {
+  cursor: pointer;
+  filter: none;
+}
+
+.project-cover__desktop {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.project-cover__mobile {
+  width: 25%;
+  height: 60%;
+  border: 1px solid silver;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.link-container {
+  display: flex;
+  justify-content: end;
+  gap: 12px;
+}
+
+.link {
+  font-size: 1.6rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: black;
 }
