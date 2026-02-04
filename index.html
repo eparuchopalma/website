@@ -63,10 +63,10 @@
         </h4>
       </div>
       <ul class="project-covers">
-        <li class="project-cover project-cover_left">
+        <li class="project-cover project-cover_left" onclick="selectPreviousProject()">
           <div
           class="project-cover__desktop"
-          style="background-image: url('assets/luthen_desktop.png');" />
+          style="background-image: url('assets/project-placeholder-2.png');" />
           <div
           class="project-cover__mobile"
           style="background-image: url('assets/luthen_mobile.png');" />
@@ -81,7 +81,7 @@
         <li class="project-cover project-cover_right">
           <div
           class="project-cover__desktop"
-          style="background-image: url('assets/luthen_desktop.png');" />
+          style="background-image: url('assets/project-placeholder-1.png');" />
           <div
           class="project-cover__mobile"
           style="background-image: url('assets/luthen_mobile.png');" />
@@ -112,5 +112,15 @@
       </ul>
     </section>
   </main>
+  <script>
+    function selectPreviousProject() {
+      const currentElOnLeft = document.querySelector('.project-cover_left')
+      const currentElOnCenter = document.querySelector('.project-cover_center')
+      const currentElOnRight = document.querySelector('.project-cover_right')
+      currentElOnLeft.setAttribute('class', 'project-cover project-cover_center');
+      currentElOnCenter.setAttribute('class', 'project-cover project-cover_right');
+      currentElOnRight.setAttribute('class', 'project-cover project-cover_left');
+    }
+  </script>
 </body>
 </html>
