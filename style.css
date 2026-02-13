@@ -269,60 +269,70 @@ body, button {
   cursor: pointer;
 }
 
-.project-covers {
+.project-images {
   margin: 12px 0 16px;
   border: 1px dashed black;
   width: 100%;
   height: 50%;
   position: relative;
+  overflow: hidden;
 }
 
-.project-cover {
+.project-image {
   width: 500px;
   border-radius: 8px;
   position: absolute;
   bottom: 48px;
   left: calc(50% - 250px);
   transition: all .3s;
+  aspect-ratio: 16 / 9;
 }
 
-.cover {
-  width: 100%;
-  height: 100%;
+.project-image_center {
+  z-index: 20;
 }
 
-.project-cover_center {
-  transform: scale(1.07);
+.project-image_left {
+  filter: grayscale(1);
+  transform: rotate(-5deg) translate(-40px, 0px);
+  z-index: 0;
+}
+
+.project-image_right {
+  filter: grayscale(1);
+  transform: rotate(5deg) translate(40px, 0px);
   z-index: 10;
 }
 
-.project-cover_left {
-  filter: grayscale(1);
-  transform: rotate(-5deg) translate(-120px, 20px) scale(.8);
-  z-index: 0;
-}
-
-.project-cover_right {
-  filter: grayscale(1);
-  transform: rotate(5deg) translate(120px, 20px) scale(.8);
-  z-index: 0;
-}
-
-.project-cover_left:hover, .project-cover_right:hover {
+.project-image_left:hover, .project-image_right:hover {
   cursor: pointer;
   filter: none;
 }
 
-.project-cover__desktop {
+.project-image_slide-from-left {
+  animation-name: slide-from-left;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+.project-image_slide-from-right {
+  animation-name: slide-from-right;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+
+.project-image__desktop {
   padding: 4px;
-  background-image: linear-gradient(to left, #777, #333);
+  background-image: linear-gradient(to left, #777, #333 25%);
   border-radius: 4px;
-  aspect-ratio: 16 / 9;
   position: absolute;
   bottom: 0;
 }
 
-.project-cover__mobile {
+.project-image__mobile {
   width: 110px;
   height: 220px;
   padding: 1px;
@@ -351,4 +361,35 @@ body, button {
 
 .link:hover {
   color: black;
+}
+
+
+@keyframes slide-from-left {
+  0% {
+    filter: grayscale(1);
+    transform: rotate(-5deg) translate(-40px, 0px);
+  }
+
+  50% {
+    transform: rotate(-5deg) translateX(-600px);
+  }
+  
+  100% {
+    z-index: 20;
+  }
+}
+
+@keyframes slide-from-right {
+  0% {
+    filter: grayscale(1);
+    transform: rotate(5deg) translate(-40px, 0px);
+  }
+
+  50% {
+    transform: rotate(5deg) translateX(600px);
+  }
+  
+  100% {
+    z-index: 20;
+  }
 }
