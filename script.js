@@ -46,10 +46,82 @@ const projects = [
       code: '#',
       design: '#'
     }
-  }
+  },
+  {
+    title: "Placeholder 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    desktopCover: "assets/project-placeholder-3.png",
+    mobileCover: "assets/luthen_mobile.png",
+    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    links: {
+      demo: '#',
+      code: '#',
+      design: '#'
+    }
+  },
+  {
+    title: "Placeholder 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    desktopCover: "assets/project-placeholder-3.png",
+    mobileCover: "assets/luthen_mobile.png",
+    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    links: {
+      demo: '#',
+      code: '#',
+      design: '#'
+    }
+  },
+  {
+    title: "Placeholder 2",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    desktopCover: "assets/project-placeholder-2.png",
+    mobileCover: "assets/luthen_mobile.png",
+    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
+    links: {
+      demo: '#',
+      code: '#',
+      design: '#'
+    }
+  },
+  {
+    title: "Placeholder 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    desktopCover: "assets/project-placeholder-3.png",
+    mobileCover: "assets/luthen_mobile.png",
+    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    links: {
+      demo: '#',
+      code: '#',
+      design: '#'
+    }
+  },
+  {
+    title: "Placeholder 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    desktopCover: "assets/project-placeholder-3.png",
+    mobileCover: "assets/luthen_mobile.png",
+    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    links: {
+      demo: '#',
+      code: '#',
+      design: '#'
+    }
+  },
+  {
+    title: "Placeholder 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    desktopCover: "assets/project-placeholder-3.png",
+    mobileCover: "assets/luthen_mobile.png",
+    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    links: {
+      demo: '#',
+      code: '#',
+      design: '#'
+    }
+  },
 ];
 
-let centerProjectIndex = 0;
+let centerProjectIndex = 2;
 let coverOnLeft;
 let coverOnRight;
 let coverOnCenter;
@@ -57,15 +129,36 @@ let titleOnLeft;
 let titleOnRight;
 let titleOnCenter;
 
-const titles = document.getElementById('project-titles').children;
-const images = document.getElementsByClassName('project-image');
-const description = document.getElementById('project-description');
+const titleContainerEl = document.getElementById('project-titles');
+const imageContainerEl = document.getElementById('project-images');
+const descriptionEl = document.getElementById('project-description');
 const labels = document.getElementById('project-labels');
 const links = document.getElementById('project-links');
 
 function setProjects() {
-  for (let index = 0; index < 3; index++) {
-    titles[index].textContent = projects[index].title;
+  for (let index in projects) {
+    const indexMultiplier = index == 0 ? 0 : index % 2 === 0 ? -index + 1 : index;
+
+    const titleElement = document.createElement('li');
+    titleElement.setAttribute('class', index == 0 ? 'project-title_selected project-title' : 'project-title');
+
+    const title = document.createTextNode(projects[index].title);
+
+    titleElement.appendChild(title);
+
+    titleElement.setAttribute('style', `transform: translateX(${index * 500}px);`);
+
+    titleElement.addEventListener('click', () => {
+      titleContainerEl.scrollTo({ left: index * 500, behavior: 'smooth' });
+      titleElement.setAttribute('class', 'project-title project-title_selected');
+      if (index > 0) titleContainerEl.children[Number(index) - 1].setAttribute('class', 'project-title');      
+      titleContainerEl.children[Number(index) + 1].setAttribute('class', 'project-title');
+    });
+
+    titleContainerEl.appendChild(titleElement);
+    
+    const projectImages = document.createElement('li');
+    projectImages.setAttribute('class', 'project-image');
 
     const mobileImg = document.createElement('img');
     mobileImg.setAttribute('class', 'project-image__mobile');
@@ -75,9 +168,14 @@ function setProjects() {
     desktopImg.setAttribute('class', 'project-image__desktop');
     desktopImg.setAttribute('src', projects[index].desktopCover);
 
-    images[index].appendChild(desktopImg);
-    images[index].appendChild(mobileImg);
+    projectImages.appendChild(desktopImg);
+    projectImages.appendChild(mobileImg);
+    imageContainerEl.appendChild(projectImages);
+
+    projectImages.setAttribute('style', `transform: rotate(${indexMultiplier * 5}deg) translateX(${indexMultiplier * 25}px); z-index: ${10 - index};`);
   }
+
+  descriptionEl.textContent = projects[2].description;
 
   for (const technology of projects[centerProjectIndex].stack) {
     const label = document.createElement('span');
@@ -128,7 +226,6 @@ function previousProject() {
   titleOnLeft.setAttribute('class', 'project-title project-title_center');
   titleOnCenter.setAttribute('class', 'project-title project-title_right');
   titleOnRight.setAttribute('class', 'project-title project-title_left');
-
   setTimeout(() => {
     coverOnLeft.setAttribute('class', 'project-image project-image_center');
     setListeners();
@@ -147,6 +244,7 @@ function nextProject() {
   titleOnCenter.setAttribute('class', 'project-title project-title_left');
   titleOnRight.setAttribute('class', 'project-title project-title_center');
 
+  setLeftImages();
   setTimeout(() => {
     coverOnRight.setAttribute('class', 'project-image project-image_center');
     setListeners();
@@ -155,17 +253,23 @@ function nextProject() {
 
 function fadeText() {
   labels.setAttribute('class', 'label-container label-container_mt label-container_faded')
-  description.setAttribute('class', 'paragraph paragraph_faded');
+  descriptionEl.setAttribute('class', 'paragraph paragraph_faded');
   setTimeout(() => {
     setLabels();
     setDescription();
     labels.setAttribute('class', 'label-container label-container_mt');
-    description.setAttribute('class', 'paragraph');
+    descriptionEl.setAttribute('class', 'paragraph');
   }, 200);
 }
 
 function setDescription() {
-  description.textContent = projects[centerProjectIndex].description;
+  descriptionEl.textContent = projects[centerProjectIndex].description;
+}
+
+function setLeftImages() {
+  const previousIndex = centerProjectIndex == 0 ? projects.length - 1 : centerProjectIndex - 1;
+  coverOnLeft.children[0].setAttribute('src', projects[previousIndex].desktopCover)
+  coverOnLeft.children[1].setAttribute('src', projects[previousIndex].mobileCover)
 }
 
 function setLabels() {
@@ -181,4 +285,4 @@ function setLabels() {
 }
 
 setProjects();
-setListeners();
+// setListeners();
