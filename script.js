@@ -48,9 +48,9 @@ const projects = [
     }
   },
   {
-    title: "Placeholder 3",
+    title: "Placeholder 4",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-3.png",
+    desktopCover: "assets/project-placeholder-4.png",
     mobileCover: "assets/luthen_mobile.png",
     stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
     links: {
@@ -60,9 +60,9 @@ const projects = [
     }
   },
   {
-    title: "Placeholder 3",
+    title: "Placeholder 5",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-3.png",
+    desktopCover: "assets/project-placeholder-5.png",
     mobileCover: "assets/luthen_mobile.png",
     stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
     links: {
@@ -72,9 +72,9 @@ const projects = [
     }
   },
   {
-    title: "Placeholder 2",
+    title: "Placeholder 6",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-2.png",
+    desktopCover: "assets/project-placeholder-6.png",
     mobileCover: "assets/luthen_mobile.png",
     stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
     links: {
@@ -84,33 +84,9 @@ const projects = [
     }
   },
   {
-    title: "Placeholder 3",
+    title: "Placeholder 7",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-3.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-3.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-3.png",
+    desktopCover: "assets/project-placeholder-7.png",
     mobileCover: "assets/luthen_mobile.png",
     stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
     links: {
@@ -140,7 +116,7 @@ function setProjects() {
     const indexMultiplier = index == 0 ? 0 : index % 2 === 0 ? -index + 1 : index;
 
     const titleElement = document.createElement('li');
-    titleElement.setAttribute('class', index == 0 ? 'project-title_selected project-title' : 'project-title');
+    titleElement.setAttribute('class', 'project-title');
 
     const title = document.createTextNode(projects[index].title);
 
@@ -148,17 +124,16 @@ function setProjects() {
 
     titleElement.setAttribute('style', `transform: translateX(${index * 500}px);`);
 
-    titleElement.addEventListener('click', () => {
-      titleContainerEl.scrollTo({ left: index * 500, behavior: 'smooth' });
-      titleElement.setAttribute('class', 'project-title project-title_selected');
-      if (index > 0) titleContainerEl.children[Number(index) - 1].setAttribute('class', 'project-title');      
-      titleContainerEl.children[Number(index) + 1].setAttribute('class', 'project-title');
-    });
+    titleElement.addEventListener('click', () => selectProject(index));
 
     titleContainerEl.appendChild(titleElement);
     
     const projectImages = document.createElement('li');
     projectImages.setAttribute('class', 'project-image');
+
+    projectImages.addEventListener('click', () => {
+      selectProject(index);
+    });
 
     const mobileImg = document.createElement('img');
     mobileImg.setAttribute('class', 'project-image__mobile');
@@ -172,8 +147,11 @@ function setProjects() {
     projectImages.appendChild(mobileImg);
     imageContainerEl.appendChild(projectImages);
 
-    projectImages.setAttribute('style', `transform: rotate(${indexMultiplier * 5}deg) translateX(${indexMultiplier * 25}px); z-index: ${10 - index};`);
+    projectImages.setAttribute('style', `transform: rotate(${indexMultiplier * 5}deg) translateX(${indexMultiplier * 25}px); z-index: ${projects.length - index};`);
   }
+
+  titleContainerEl.children[0].setAttribute('class', 'project-title project-title_selected');
+  imageContainerEl.children[0].setAttribute('class', 'project-image project-image_selected');
 
   descriptionEl.textContent = projects[2].description;
 
@@ -183,6 +161,41 @@ function setProjects() {
     label.setAttribute('class', 'label');
     labels.appendChild(label);
   }
+}
+
+async function selectProject(selected) {
+  let counter = 0;
+  let index = Number(selected);
+  let indexMultiplier = 0;
+  imageContainerEl.children[selected].setAttribute('class', 'project-image project-image_slide-from-right');
+  focusTitle(Number(selected));
+  do {
+    const element = imageContainerEl.children[index];
+    if (counter === 0) {
+      await new Promise((resolve, reject) => setTimeout(() => {
+        element.setAttribute('style', `z-index: ${projects.length};`);
+        resolve();
+      }, 500));
+    } else {
+      element.setAttribute('class', 'project-image');
+      await new Promise((resolve, reject) => setTimeout(() => {
+        element.setAttribute('style', `transform: rotate(${indexMultiplier * 5}deg) translateX(${indexMultiplier * 25}px); z-index: ${projects.length - counter};`);
+        resolve();
+      }, 50));
+    }
+    counter++;
+    index = (index + 1 == projects.length) ? 0 : index + 1;
+    indexMultiplier = counter % 2 === 0 ? -counter + 1 : counter;
+  } while(counter < projects.length)
+}
+
+function focusTitle(index) {
+  console.log(index);
+  const titleElement = titleContainerEl.children[index];
+  titleContainerEl.scrollTo({ left: index * 500, behavior: 'smooth' });
+  titleElement.setAttribute('class', 'project-title project-title_selected');
+  if (index > 0) titleContainerEl.children[Number(index) - 1].setAttribute('class', 'project-title');
+  if (index + 1 < [projects.length]) titleContainerEl.children[Number(index) + 1].setAttribute('class', 'project-title');
 }
 
 function findCovers() {

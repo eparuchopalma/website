@@ -241,13 +241,16 @@ body, button {
   filter: grayscale(1);
 }
 
-.project-image:hover, .project-image:hover {
+.project-image:hover {
   filter: none;
   cursor: pointer;
 }
 
-.project-image:first-child {
+.project-image_selected {
   filter: none;
+}
+
+.project-image_selected:hover {
   cursor: auto;
 }
 
@@ -307,29 +310,29 @@ body, button {
 @keyframes slide-from-left {
   0% {
     filter: grayscale(1);
-    transform: rotate(-5deg) translate(-40px, 0px);
   }
-
+  
   50% {
-    transform: rotate(-5deg) translateX(-600px);
+    transform: translateX(-900px);
   }
   
   100% {
-    z-index: 20;
+    transform: none;
+    filter: none;
   }
 }
 
 @keyframes slide-from-right {
   0% {
     filter: grayscale(1);
-    transform: rotate(5deg) translate(-40px, 0px);
   }
 
   50% {
-    transform: rotate(5deg) translateX(600px);
+    transform: translateX(900px);
   }
-  
+
   100% {
-    z-index: 20;
+    transform: none;
+    filter: none;
   }
 }
