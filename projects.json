@@ -13,7 +13,7 @@
   },
   {
     "title": "Placeholder 1",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "1: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-1.png",
     "mobileCover": "assets/luthen_mobile.png",
     "stack": ["TypeScript", "Vue.js"],
@@ -25,7 +25,7 @@
   },
   {
     "title": "Placeholder 2",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "2: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-2.png",
     "mobileCover": "assets/luthen_mobile.png",
     "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
@@ -37,7 +37,7 @@
   },
   {
     "title": "Placeholder 3",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "3: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-3.png",
     "mobileCover": "assets/luthen_mobile.png",
     "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
@@ -49,10 +49,10 @@
   },
   {
     "title": "Placeholder 4",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "4: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-4.png",
     "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    "stack": ["TypeScript", "Node.js", "Express.js", "MongoDB"],
     "links": {
       "demo": "#",
       "code": "#",
@@ -61,10 +61,10 @@
   },
   {
     "title": "Placeholder 5",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "5: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-5.png",
     "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    "stack": ["TypeScript", "Node.js", "Nest.js", "PostgreSQL", "Redis", "Prisma"],
     "links": {
       "demo": "#",
       "code": "#",
@@ -73,10 +73,10 @@
   },
   {
     "title": "Placeholder 6",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "6: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-6.png",
     "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
+    "stack": ["TypeScript", "Node.js", "Nest.js", "PostgreSQL", "Sequelize"],
     "links": {
       "demo": "#",
       "code": "#",
@@ -85,10 +85,10 @@
   },
   {
     "title": "Placeholder 7",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
+    "description": "7: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-7.png",
     "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
+    "stack": ["TypeScript", "Node.js", "Express.js", "MySQL", "Elastic"],
     "links": {
       "demo": "#",
       "code": "#",

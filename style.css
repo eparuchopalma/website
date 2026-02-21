@@ -179,7 +179,7 @@ body, button {
   font-size: 1.6rem;
 }
 
-.project-titles {
+.title-container {
   margin-bottom: 2px;
   width: 100%;
   height: 64px;
@@ -223,7 +223,8 @@ body, button {
   padding-right: 800px;
 }
 
-.project-images {
+.image-container {
+  margin: 6px 0;
   width: 100%;
   height: 50%;
   position: relative;
@@ -254,20 +255,12 @@ body, button {
   cursor: auto;
 }
 
-.project-image_slide-from-left {
-  animation-name: slide-from-left;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  animation-duration: 1s;
-}
-
 .project-image_slide-from-right {
   animation-name: slide-from-right;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-duration: 1s;
 }
-
 
 .project-image__desktop {
   padding: 4px;
@@ -307,24 +300,8 @@ body, button {
 }
 
 
-@keyframes slide-from-left {
-  0% {
-    filter: grayscale(1);
-  }
-  
-  50% {
-    transform: translateX(-900px);
-  }
-  
-  100% {
-    transform: none;
-    filter: none;
-  }
-}
-
 @keyframes slide-from-right {
   0% {
-    filter: grayscale(1);
   }
 
   50% {
@@ -333,6 +310,5 @@ body, button {
 
   100% {
     transform: none;
-    filter: none;
   }
 }
