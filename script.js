@@ -1,109 +1,5 @@
-const projects = [
-  {
-    title: "Luthen",
-    description: "A financial log web application. Save records, create funds, check your stats.",
-    desktopCover: "assets/luthen_desktop.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Vue.js", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 1",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-1.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Vue.js"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 2",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-2.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-3.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 4",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-4.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 5",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-5.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 6",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-6.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-  {
-    title: "Placeholder 7",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quaerat blanditiis ipsam ducimus placeat sint, beatae consequuntur, nulla illum magni unde officiis. Provident alias corporis asperiores ea velit animi deserunt.",
-    desktopCover: "assets/project-placeholder-7.png",
-    mobileCover: "assets/luthen_mobile.png",
-    stack: ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    links: {
-      demo: '#',
-      code: '#',
-      design: '#'
-    }
-  },
-];
-
-let centerProjectIndex = 2;
-let coverOnLeft;
-let coverOnRight;
-let coverOnCenter;
-let titleOnLeft;
-let titleOnRight;
-let titleOnCenter;
+let projects;
+let centerProjectIndex = 0;
 
 const titleContainerEl = document.getElementById('project-titles');
 const imageContainerEl = document.getElementById('project-images');
@@ -111,9 +7,13 @@ const descriptionEl = document.getElementById('project-description');
 const labels = document.getElementById('project-labels');
 const links = document.getElementById('project-links');
 
-function setProjects() {
+async function setProjects() {
+  await fetch('./projects.json')
+    .then(response => response.json())
+    .then(json => projects = json)
+
   for (let index in projects) {
-    const indexMultiplier = index == 0 ? 0 : index % 2 === 0 ? -index + 1 : index;
+    const indexMultiplier = index;
 
     const titleElement = document.createElement('li');
     titleElement.setAttribute('class', 'project-title');
@@ -127,7 +27,7 @@ function setProjects() {
     titleElement.addEventListener('click', () => selectProject(index));
 
     titleContainerEl.appendChild(titleElement);
-    
+
     const projectImages = document.createElement('li');
     projectImages.setAttribute('class', 'project-image');
 
@@ -163,34 +63,40 @@ function setProjects() {
   }
 }
 
-async function selectProject(selected) {
-  let counter = 0;
-  let index = Number(selected);
-  let indexMultiplier = 0;
-  imageContainerEl.children[selected].setAttribute('class', 'project-image project-image_slide-from-right');
-  focusTitle(Number(selected));
-  do {
+async function selectProject(i) {
+  const selectedIndex = Number(i);
+  focusTitle(selectedIndex);
+
+  imageContainerEl.children[selectedIndex]
+    .setAttribute('class', 'project-image project-image_slide-from-right');
+  
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      imageContainerEl.children[selectedIndex]
+        .setAttribute('style', `z-index: ${imageContainerEl.children.length};`);
+      resolve();
+    }, 500)
+  });
+
+  for (let index = 0; index < imageContainerEl.children.length; index++) {
+    if (index === selectedIndex) continue;
+
     const element = imageContainerEl.children[index];
-    if (counter === 0) {
-      await new Promise((resolve, reject) => setTimeout(() => {
-        element.setAttribute('style', `z-index: ${projects.length};`);
-        resolve();
-      }, 500));
-    } else {
-      element.setAttribute('class', 'project-image');
-      await new Promise((resolve, reject) => setTimeout(() => {
-        element.setAttribute('style', `transform: rotate(${indexMultiplier * 5}deg) translateX(${indexMultiplier * 25}px); z-index: ${projects.length - counter};`);
-        resolve();
-      }, 50));
-    }
-    counter++;
-    index = (index + 1 == projects.length) ? 0 : index + 1;
-    indexMultiplier = counter % 2 === 0 ? -counter + 1 : counter;
-  } while(counter < projects.length)
+    const stackPosition = (index < selectedIndex) ? projects.length - (selectedIndex - index) : projects.length - (index - selectedIndex);
+    const rotationAngle = (index - selectedIndex) * 5;
+    const translationX = (index - selectedIndex) * 25;
+    const timeOut = (index < selectedIndex) ? 400 : 100;
+
+    element.setAttribute('class', 'project-image');
+
+    new Promise((resolve, reject) => setTimeout(() => {
+      element.setAttribute('style', `z-index: ${stackPosition}; transform: rotate(${rotationAngle}deg) translate(${translationX}px);`);
+      resolve();
+    }, timeOut));
+  }
 }
 
 function focusTitle(index) {
-  console.log(index);
   const titleElement = titleContainerEl.children[index];
   titleContainerEl.scrollTo({ left: index * 500, behavior: 'smooth' });
   titleElement.setAttribute('class', 'project-title project-title_selected');
@@ -210,60 +116,6 @@ function findTitles() {
   titleOnCenter = document.querySelector('.project-title_center');
 }
 
-function setListeners() {
-  findCovers();
-  findTitles();
-  coverOnLeft.addEventListener('click', previousProject);
-  titleOnLeft.addEventListener('click', previousProject);
-  coverOnRight.addEventListener('click', nextProject);
-  titleOnRight.addEventListener('click', nextProject);
-}
-
-function removeListeners() {
-  findCovers();
-  findTitles();
-  coverOnLeft.removeEventListener('click', previousProject);
-  coverOnRight.removeEventListener('click', nextProject);
-  titleOnLeft.removeEventListener('click', previousProject);
-  titleOnRight.removeEventListener('click', nextProject);
-}
-
-function previousProject() {
-  if (centerProjectIndex > 0) centerProjectIndex--;
-  else centerProjectIndex = projects.length - 1;
-  fadeText();
-  removeListeners();
-  coverOnLeft.setAttribute('class', 'project-image project-image_slide-from-left');
-  coverOnCenter.setAttribute('class', 'project-image project-image_right');
-  coverOnRight.setAttribute('class', 'project-image project-image_left');
-  titleOnLeft.setAttribute('class', 'project-title project-title_center');
-  titleOnCenter.setAttribute('class', 'project-title project-title_right');
-  titleOnRight.setAttribute('class', 'project-title project-title_left');
-  setTimeout(() => {
-    coverOnLeft.setAttribute('class', 'project-image project-image_center');
-    setListeners();
-  }, 1000);
-}
-
-function nextProject() {
-  if (centerProjectIndex === projects.length - 1) centerProjectIndex = 0;
-  else centerProjectIndex++;
-  fadeText();
-  removeListeners();
-  coverOnRight.setAttribute('class', 'project-image project-image_slide-from-right');
-  coverOnCenter.setAttribute('class', 'project-image project-image_left');
-  coverOnLeft.setAttribute('class', 'project-image project-image_right');
-  titleOnLeft.setAttribute('class', 'project-title project-title_right');
-  titleOnCenter.setAttribute('class', 'project-title project-title_left');
-  titleOnRight.setAttribute('class', 'project-title project-title_center');
-
-  setLeftImages();
-  setTimeout(() => {
-    coverOnRight.setAttribute('class', 'project-image project-image_center');
-    setListeners();
-  }, 1000);  
-}
-
 function fadeText() {
   labels.setAttribute('class', 'label-container label-container_mt label-container_faded')
   descriptionEl.setAttribute('class', 'paragraph paragraph_faded');
@@ -279,12 +131,6 @@ function setDescription() {
   descriptionEl.textContent = projects[centerProjectIndex].description;
 }
 
-function setLeftImages() {
-  const previousIndex = centerProjectIndex == 0 ? projects.length - 1 : centerProjectIndex - 1;
-  coverOnLeft.children[0].setAttribute('src', projects[previousIndex].desktopCover)
-  coverOnLeft.children[1].setAttribute('src', projects[previousIndex].mobileCover)
-}
-
 function setLabels() {
   while (labels.firstChild) {
     labels.removeChild(labels.firstChild);
@@ -298,4 +144,3 @@ function setLabels() {
 }
 
 setProjects();
-// setListeners();
