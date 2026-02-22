@@ -151,11 +151,11 @@ body, button {
 }
 
 .label-container {
-  width: 80%;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   grid-column: 1 / 2;
+  align-self: start;
   transition: opacity .5s;
 }
 
@@ -313,89 +313,22 @@ body, button {
 }
 
 .mosaic {
-  position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  background-color: beige;
   border-radius: 2px;
   height: 85%;
-}
-
-.mosaic__picture {
-  border-radius: 1px;
-  filter: blur(3px);
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: all .5s;
-}
-
-.mosaic__picture:hover {
-  filter: none;
-  box-shadow: 0 0 12px white;
-}
-
-.mosaic__picture_portrait {
-  height: 400px;
-  width: 250px;
-  aspect-ratio: 9/6;
-}
-
-.mosaic__picture_landscape {
-  aspect-ratio: 3/2;
-  width: 400px;
-}
-
-.mosaic__picture_1 {
-  background-image: url('assets/mosaic_1.png');
-  left: 10px;
-  transform: rotate(-10deg);
-}
-
-.mosaic__picture_2 {
-  background-image: url('assets/mosaic_2.png');
-  left: 350px;
-  transform: rotate(-5deg);
-}
-
-.mosaic__picture_3 {
-  background-image: url('assets/mosaic_3.png');
-  right: 0;
-}
-
-.mosaic__picture_4 {
-  background-image: url('assets/mosaic_4.png');
-  left: 100px;
-  bottom: -100px;
-}
-
-.mosaic__picture_5 {
-  background-image: url('assets/mosaic_5.png');
-  left: 350px;
-  bottom: 0;
-  transform: rotate(-15deg);
-}
-
-.mosaic__picture_6 {
-  background-image: url('assets/mosaic_6.png');
-  right: 250px;
-  bottom: 0;
-  transform: rotate(5deg);
-}
-
-.mosaic__picture_7 {
-  background-image: url('assets/mosaic_7.png');
-  right: 10px;
-  bottom: 20%;
-  transform: rotate(10deg);
+  perspective: 800px;
+  background: url('assets/mosaic.png') center/cover fixed;
 }
 
 .mosaic__text {
   width: 600px;
   height: 300px;
   padding: 8px;
-  position: absolute;
-  top: calc(50% - 150px);
-  left: calc(50% - 300px);
   background-color: rgba(250, 250, 250, .6);
   box-shadow: -6px 6px black;
 }
