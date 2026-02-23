@@ -24,7 +24,7 @@ img {
   height: 100%;
 }
 
-body, button {
+body, button, a {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -103,8 +103,8 @@ body, button {
 }
 
 .button {
-  width: 134px;
-  height: 36px;
+  width: 164px;
+  height: 44px;
   border-radius: 1px;
   border: 2px solid black;
   font-weight: bold;
@@ -151,8 +151,6 @@ body, button {
 }
 
 .section_w-half {
-  padding-right: 0;
-  padding-top: 0;
   padding-bottom: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -165,17 +163,62 @@ body, button {
 }
 
 .section__actions {
-  display: flex;
-  gap: 32px;
+  align-self: start;
+  text-align: right;
 }
 
 .section__picture {
-  overflow: hidden;
+  width: 100%;
+  background-position: right;
   margin-left: auto;
+  background-image: url(assets/image_20.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
 }
 
-.pic {
-  object-fit: contain;
+.section__links {
+  display: grid;
+  gap: 12px;
+}
+
+.section__link {
+  width: 480px;
+  height: 48px;
+  padding-left: 48px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: black;
+  gap: 16px;
+  background-color: #EEE;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: 8px;
+  background-size: 32px;
+  transition: background-color .5s;
+}
+
+.section__link:hover {
+  background-color: #CCC;
+}
+
+.section__link_email {
+  background-image: url('https://img.icons8.com/?size=100&id=pJJmXPomYuPv&format=png&color=000000');
+}
+
+.section__link_linkedin {
+  background-image: url('https://img.icons8.com/?size=100&id=8808&format=png&color=000000');
+}
+
+.section__link_github {
+  background-image: url('https://img.icons8.com/?size=100&id=RHLuYrY4GjUv&format=png&color=000000');
+}
+
+.section__link_goodreads {
+  background-image: url('https://img.icons8.com/?size=100&id=eRXAEL4Ekpjt&format=png&color=000000');
 }
 
 .label-container {
@@ -341,15 +384,13 @@ body, button {
 }
 
 .mosaic {
-  overflow: hidden;
+  height: 85%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  background-color: beige;
+  overflow: hidden;
   border-radius: 2px;
-  height: 85%;
-  perspective: 800px;
   background: url('assets/mosaic.png') center/cover fixed;
 }
 
