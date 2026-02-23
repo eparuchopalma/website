@@ -150,6 +150,34 @@ body, button {
   grid-template-rows: repeat(3, 1fr);
 }
 
+.section_w-half {
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.section__text {
+  display: grid;
+  align-content: space-between;
+  padding-bottom: 32px;
+}
+
+.section__actions {
+  display: flex;
+  gap: 32px;
+}
+
+.section__picture {
+  overflow: hidden;
+  margin-left: auto;
+}
+
+.pic {
+  object-fit: contain;
+}
+
 .label-container {
   display: flex;
   flex-wrap: wrap;
