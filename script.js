@@ -26,12 +26,12 @@ function getProjects() {
 
 function setProjectText(index) {
   labelContainer.setAttribute('class', 'label-container label-container_mt label-container_faded')
-  description.setAttribute('class', 'paragraph paragraph_faded');
+  description.setAttribute('class', 'section__text section__text_faded');
   setTimeout(() => {
     setLabels(index);
     description.textContent = projects[index].description;
     labelContainer.setAttribute('class', 'label-container label-container_mt');
-    description.setAttribute('class', 'paragraph');
+    description.setAttribute('class', 'section__text');
   }, 200);
 }
 
@@ -52,7 +52,7 @@ function setProjectTitle(index) {
   const titleText = document.createTextNode(projects[index].title);
   titleElement.appendChild(titleText);
   titleElement.setAttribute('class', 'project-title');
-  titleElement.setAttribute('style', `transform: translateX(${index * 500}px);`);
+  titleElement.setAttribute('style', `transform: translateY(${index * 35}px);`);
   titleElement.addEventListener('click', () => selectProject(index));
   titleContainer.appendChild(titleElement);
 }
@@ -119,7 +119,7 @@ async function selectProject(i) {
 
 function focusTitle(index) {
   const titleElement = titleContainer.children[index];
-  titleContainer.scrollTo({ left: index * 500, behavior: 'smooth' });
+  titleContainer.scrollTo({ top: index * 35, behavior: 'smooth' });
   titleElement.setAttribute('class', 'project-title project-title_selected');
   if (index > 0) titleContainer.children[Number(index) - 1].setAttribute('class', 'project-title');
   if (index + 1 < [projects.length]) titleContainer.children[Number(index) + 1].setAttribute('class', 'project-title');

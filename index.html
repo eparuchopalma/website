@@ -6,53 +6,39 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manuale:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <title>Edgar Parucho Palma</title>
 </head>
 <body>
   <main>
+
     <header class="header">
-      <h1 class="headline headline_text-right">Edgar<br>Parucho Palma</h1>
-      <h3 class="subtitle">Front-End Web Developer</h3>
-      <blockquote class="paragraph">
+      <h1 class="header__title">EDGAR<br>PARUCHO PALMA</h1>
+      <strong class="header__subtitle">Front-End Web Developer</strong>
+      <blockquote class="header__blockquote">
         I create<br>
         swift, gorgeous<br>
         sites and applications for the web
       </blockquote>
       <div class="header__actions">
-        <button class="button button_secondary">See me work</button>
+        <button class="button button_secondary">See my work</button>
         <button class="button button_primary">Contact me</button>
       </div>
+      <picture class="header__picture">
+        <source media="(min-width: 650px)" srcset="assets/author_lg.webp">
+        <source media="(min-width: 465px)" srcset="assets/author_md.webp">
+        <img
+        src="assets/author_sm.webp"
+        alt="A black and white portrait of a man with short hair, wearing a dark jacket and a dark t-shirt"
+        class="picture">
+      </picture>
     </header>
-    <picture class="picture-container">
-      <source media="(min-width: 650px)" srcset="assets/placeholder-1_636x1020.png">
-      <source media="(min-width: 465px)" srcset="assets/placeholder-1_400x462.png">
-      <img
-      src="assets/placeholder-1_300x481.png"
-      alt="A black and white portrait of a man with short hair, wearing a dark jacket and a dark t-shirt">
-    </picture>
-    <section class="section section_grid">
-      <h2 class="headline">About Me</h2>
-      <div>
-        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <br>
-        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <ul class="label-container">
-        <li class="label">HTML</li>
-        <li class="label">CSS</li>
-        <li class="label">JavaScript</li>
-        <li class="label">Vue.js</li>
-        <li class="label">TypeScript</li>
-        <li class="label">Node.js</li>
-        <li class="label">Express.js</li>
-      </ul>
-    </section>
+
     <section class="section">
-      <h2 class="headline">My Projects</h2>
-      <ul id="title-container" class="title-container"></ul>
+      <h2 class="section__title">My Projects</h2>
+      <ul id="title-container" class="project-title-container"></ul>
       <ul id="image-container" class="image-container"></ul>
-      <p id="project-description" class="paragraph"></p>
+      <p id="project-description" class="section__text"></p>
       <div id="label-container" class="label-container label-container_mt"></div>
       <ul id="link-container" class="link-container">
         <li>
@@ -66,40 +52,60 @@
         </li>
       </ul>
     </section>
+    <section class="section section_split">
+      <div class="section__text">
+        <h2 class="headline">About Me</h2>
+        <div>
+          <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <br>
+          <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <ul class="label-container">
+          <li class="label">HTML</li>
+          <li class="label">CSS</li>
+          <li class="label">JavaScript</li>
+          <li class="label">Vue.js</li>
+          <li class="label">TypeScript</li>
+          <li class="label">Node.js</li>
+          <li class="label">Express.js</li>
+        </ul>
+      </div>
+    </section>
     <section class="section">
       <h2 class="headline">About Me</h2>
       <div class="mosaic">
         <div class="mosaic__text">
-          <p class="paragraph">
+          <p class="section__text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam veritatis neque voluptate, tenetur ex mollitia, dignissimos dolor accusamus officia doloremque dolorem atque labore ipsam alias sunt. Reiciendis, nisi eveniet? Atque.
           </p>
-          <p class="paragraph">
+          <p class="section__text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam veritatis neque voluptate, tenetur ex mollitia, dignissimos dolor accusamus officia doloremque dolorem atque labore ipsam alias sunt. Reiciendis, nisi eveniet? Atque.
           </p>
         </div>  
       </div>
     </section>
-    <section class="section section_w-half">
+    <section class="section section_split">
       <div class="section__text">
+        <h2 class="headline">Thank you!</h2>
         <div>
-          <h2 class="headline">Thank you!</h2>
-          <p class="paragraph">I appreciate your time.</p>
+          <p class="section__text">I appreciate your time.</p>
           <br>
-          <p class="paragraph">
+          <p class="section__text">
             If I can serve you somehow, get in touch, I’ll be pleased to help.
           </p>
         </div>
-        <div class="section__actions">
-          <button class="button button_primary">Leave a message</button>
-        </div>
         <div class="section__links">
+          <button class="button button_primary">Leave a message</button>
           <a class="section__link section__link_email" href="">E-mail: eparuchopalma@outlook.com</a>
           <a class="section__link section__link_linkedin" href="">linkedin.com/in/eparuchopalma</a>
           <a class="section__link section__link_github" href="">github.com/eparuchopalma</a>
           <a class="section__link section__link_goodreads" href="">goodreads.com/eparuchopalma</a>
         </div>
       </div>
-      <div class="section__picture">
+      <div class="picture-container">
+        <img
+        src="assets/image_20.png"
+        alt="A black and white portrait of a man wearing a dark dark t-shirt and glasses">
       </div>
     </section>
   </main>
