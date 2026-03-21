@@ -1,10 +1,11 @@
 let projects;
 
 const titleContainer = document.getElementById('title-container');
-const imageContainer = document.getElementById('image-container');
+const imageContainer = document.getElementById('project-image-container');
 const description = document.getElementById('project-description');
 const labelContainer = document.getElementById('label-container');
 const links = document.getElementById('link-container');
+let indexOnFocus = 0;
 
 async function setProjects() {
   await getProjects();
@@ -26,12 +27,12 @@ function getProjects() {
 
 function setProjectText(index) {
   labelContainer.setAttribute('class', 'label-container label-container_mt label-container_faded')
-  description.setAttribute('class', 'section__text section__text_faded');
+  description.setAttribute('class', 'project-description project-description_faded');
   setTimeout(() => {
     setLabels(index);
     description.textContent = projects[index].description;
     labelContainer.setAttribute('class', 'label-container label-container_mt');
-    description.setAttribute('class', 'section__text');
+    description.setAttribute('class', 'project-description');
   }, 200);
 }
 
@@ -85,6 +86,8 @@ function styleProjectOnFocus(index) {
 }
 
 async function selectProject(i) {
+  if (i == indexOnFocus) return;
+  indexOnFocus = i;
   const selectedIndex = Number(i);
 
   focusTitle(selectedIndex);

@@ -123,24 +123,28 @@ body, button, a {
 }
 
 .section__title {
+  margin: 0;
+  height: 6rem;
   font-size: 4.4rem;
   font-weight: 600;
 }
 
-.section__text {
+.project-description {
   padding: 12px;
-  background-color: rgba(255, 255, 255, .8);
   font-size: 2rem;
+  display: grid;
+  align-content: space-between;
+  padding-bottom: 32px;
+  height: 12vh;
 }
 
-.section__text_faded {
+.project-description_faded {
   opacity: .1;
 }
 
 .project-title-container {
-  margin-bottom: 2px;
   width: 100%;
-  height: 120px;
+  height: 14vh;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   position: relative;
@@ -178,8 +182,72 @@ body, button, a {
   cursor: default;
 }
 
+.project-image-container {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 220px;
+  height: 400px;
+  border-radius: 8px;
+  position: absolute;
+  left: calc(50% - 110px);
+  bottom: 0;
+  transition: all .3s;
+  filter: grayscale(1);
+}
+
+.project-image:hover {
+  filter: none;
+  cursor: pointer;
+}
+
+.project-image_selected {
+  filter: none;
+  cursor: auto;
+}
+
+.project-image_selected:hover {
+  cursor: auto;
+}
+
+.project-image_slide-from-right {
+  animation-name: slide-from-right;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+@keyframes slide-from-right {
+  0% {
+  }
+
+  50% {
+    transform: translateX(900px);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.project-image__desktop {
+  display: none;
+}
+
+.project-image__mobile {
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  background-image: linear-gradient(silver, #444);
+  border-radius: 14px;
+}
+
 .label-container {
-  margin-top: 12px;
+  height: 12vh;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -248,34 +316,37 @@ body, button, a {
     height: 100vh;
     padding: 12px;
   }
-  
-  .section_split {
+
+  /* .section_split {
     display: grid;
     grid-template-columns: 2fr 1fr;
+  } */
+
+  .project-image {
+    width: 630px;
+    height: 100%;
+    left: calc(50% - 315px);
+    background-color: firebrick;
+  }
+  
+  .project-image__desktop {
+    width: 100%;
+    padding: 4px;
+    border-radius: 4px;
+    display: block;
+    background-image: linear-gradient(to left, #777, #333 25%);
+  }
+
+  .project-image__mobile {
+    width: 160px;
+    height: 320px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    left: calc(50% - 325px);
   }
 
 }  
-
-.section__text {
-  display: grid;
-  align-content: space-between;
-  padding-bottom: 32px;
-}
-
-.section__actions {
-  align-self: start;
-  text-align: right;
-}
-
-/* .section__picture {
-  width: 100%;
-  background-position: right;
-  margin-left: auto;
-  background-image: url(assets/image_20.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-attachment: fixed;
-} */
 
 .section__links {
   display: grid;
@@ -320,75 +391,6 @@ body, button, a {
 
 .section__link_goodreads {
   background-image: url('https://img.icons8.com/?size=100&id=eRXAEL4Ekpjt&format=png&color=000000');
-}
-
-.image-container {
-  margin: 6px 0;
-  width: 100%;
-  height: 50%;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-image {
-  width: 620px;
-  height: 100%;
-  border-radius: 8px;
-  position: absolute;
-  left: calc(50% - 310px);
-  transition: all .3s;
-  aspect-ratio: 16 / 9;
-  filter: grayscale(1);
-}
-
-.project-image:hover {
-  filter: none;
-  cursor: pointer;
-}
-
-.project-image_selected {
-  filter: none;
-}
-
-.project-image_selected:hover {
-  cursor: auto;
-}
-
-.project-image_slide-from-right {
-  animation-name: slide-from-right;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  animation-duration: 1s;
-}
-
-@keyframes slide-from-right {
-  0% {
-  }
-
-  50% {
-    transform: translateX(900px);
-  }
-
-  100% {
-    transform: none;
-  }
-}
-
-.project-image__desktop {
-  padding: 4px;
-  background-image: linear-gradient(to left, #777, #333 25%);
-  border-radius: 4px;
-}
-
-.project-image__mobile {
-  width: 110px;
-  height: 220px;
-  padding: 1px;
-  background-image: linear-gradient(silver, #444);
-  border-radius: 10px;
-  position: absolute;
-  bottom: 0;
-  left: -10px;
 }
 
 .link-container {
