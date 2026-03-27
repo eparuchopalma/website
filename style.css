@@ -41,6 +41,7 @@ body, button, a {
 }
 
 .header__title {
+  margin-right: 12px;
   font-size: 4.4rem;
   font-weight: 600;
   text-align: right;
@@ -71,21 +72,20 @@ body, button, a {
 }
 
 .header__actions {
-  margin: 16px 0;
+  margin-right: 16px;
   display: flex;
   justify-content: space-between;
 }
 
 .header__picture {
-  margin: 0 auto;
-  height: 100%;
   border-radius: 2px;
   position: relative;
   transform: rotate(2deg);
-  transition: transform .5s;
 }
 
 .header__picture::before {
+  margin-top: 8px;
+  margin-left: -4px;
   width: 100%;
   height: 100%;
   border-radius: 2px;
@@ -95,19 +95,9 @@ body, button, a {
   position: absolute;
   transform: rotate(-4deg);
   z-index: -10;
-  transition: transform .5s;
-}
-
-.header__picture:hover {
-  transform: none;
-}
-
-.header__picture:hover::before {
-  transform: none;
 }
 
 .picture {
-  width: 100%;
   object-fit: cover;
 }
 
@@ -148,7 +138,6 @@ body, button, a {
 }
 
 .section__title {
-  margin: 0;
   height: 6rem;
   font-size: 4.4rem;
   font-weight: 600;
@@ -342,10 +331,10 @@ body, button, a {
     padding: 12px;
   }
 
-  /* .section_split {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  } */
+  .section__title {
+    height: 9rem;
+    font-size: 7rem;
+  }
 
   .project-image {
     width: 630px;
@@ -436,23 +425,4 @@ body, button, a {
 
 .link:hover {
   color: black;
-}
-
-.mosaic {
-  height: 80%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 2px;
-  background: url('assets/mosaic.png') center/cover fixed;
-}
-
-.mosaic__text {
-  width: 600px;
-  height: 300px;
-  padding: 8px;
-  background-color: rgba(250, 250, 250, .6);
-  box-shadow: -6px 6px black;
 }
