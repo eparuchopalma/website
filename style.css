@@ -27,6 +27,7 @@ img {
 }
 
 body, button, a {
+  font-size: 2rem;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -79,6 +80,30 @@ body, button, a {
   margin: 0 auto;
   height: 100%;
   border-radius: 2px;
+  position: relative;
+  transform: rotate(2deg);
+  transition: transform .5s;
+}
+
+.header__picture::before {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background-color: black;
+  content: " ";
+  color: transparent;
+  position: absolute;
+  transform: rotate(-4deg);
+  z-index: -10;
+  transition: transform .5s;
+}
+
+.header__picture:hover {
+  transform: none;
+}
+
+.header__picture:hover::before {
+  transform: none;
 }
 
 .picture {
@@ -114,12 +139,12 @@ body, button, a {
 }
 
 .section {
+  height: 100vh;
+  padding: 0 12px;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  padding: 0 12px;
 }
 
 .section__title {
@@ -131,7 +156,6 @@ body, button, a {
 
 .project-description {
   padding: 12px;
-  font-size: 2rem;
   display: grid;
   align-content: space-between;
   padding-bottom: 32px;
@@ -144,7 +168,7 @@ body, button, a {
 
 .project-title-container {
   width: 100%;
-  height: 14vh;
+  height: 120px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   position: relative;
@@ -185,6 +209,7 @@ body, button, a {
 .project-image-container {
   width: 100%;
   height: 50%;
+  margin-top: 12px;
   position: relative;
   overflow: hidden;
 }
