@@ -13,10 +13,10 @@
   },
   {
     "title": "Mantra",
-    "description": "1: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "desktopCover": "assets/project-placeholder-1.png",
-    "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Vue.js"],
+    "description": "Custom-made Help Desk Web Application for Microfilms Center.",
+    "desktopCover": "assets/mantra_desktop.png",
+    "mobileCover": "assets/mantra_mobile.png",
+    "stack": ["Vue.js", "Vuetify.js", "Vuex", "Vue Router", "Node.js", "Express.js", "MongoDB"],
     "links": {
       "demo": "#",
       "code": "#",
