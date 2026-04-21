@@ -12,7 +12,7 @@
     }
   },
   {
-    "title": "Placeholder 1",
+    "title": "Mantra",
     "description": "1: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-1.png",
     "mobileCover": "assets/luthen_mobile.png",
@@ -24,7 +24,7 @@
     }
   },
   {
-    "title": "Placeholder 2",
+    "title": "Lighthouse",
     "description": "2: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-2.png",
     "mobileCover": "assets/luthen_mobile.png",
@@ -36,59 +36,11 @@
     }
   },
   {
-    "title": "Placeholder 3",
+    "title": "Pensive",
     "description": "3: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     "desktopCover": "assets/project-placeholder-3.png",
     "mobileCover": "assets/luthen_mobile.png",
     "stack": ["TypeScript", "Node.js", "Express.js", "PostgreSQL", "Redis"],
-    "links": {
-      "demo": "#",
-      "code": "#",
-      "design": "#"
-    }
-  },
-  {
-    "title": "Placeholder 4",
-    "description": "4: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "desktopCover": "assets/project-placeholder-4.png",
-    "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Express.js", "MongoDB"],
-    "links": {
-      "demo": "#",
-      "code": "#",
-      "design": "#"
-    }
-  },
-  {
-    "title": "Placeholder 5",
-    "description": "5: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "desktopCover": "assets/project-placeholder-5.png",
-    "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Nest.js", "PostgreSQL", "Redis", "Prisma"],
-    "links": {
-      "demo": "#",
-      "code": "#",
-      "design": "#"
-    }
-  },
-  {
-    "title": "Placeholder 6",
-    "description": "6: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "desktopCover": "assets/project-placeholder-6.png",
-    "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Nest.js", "PostgreSQL", "Sequelize"],
-    "links": {
-      "demo": "#",
-      "code": "#",
-      "design": "#"
-    }
-  },
-  {
-    "title": "Placeholder 7",
-    "description": "7: Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "desktopCover": "assets/project-placeholder-7.png",
-    "mobileCover": "assets/luthen_mobile.png",
-    "stack": ["TypeScript", "Node.js", "Express.js", "MySQL", "Elastic"],
     "links": {
       "demo": "#",
       "code": "#",
