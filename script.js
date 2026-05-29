@@ -53,7 +53,6 @@ function setProjectTitle(index) {
   const titleText = document.createTextNode(projects[index].title);
   titleElement.appendChild(titleText);
   titleElement.setAttribute('class', 'project-title');
-  titleElement.setAttribute('style', `transform: translateY(${index * 35}px);`);
   titleElement.addEventListener('click', () => selectProject(index));
   titleContainer.appendChild(titleElement);
 }
@@ -122,10 +121,9 @@ async function selectProject(i) {
 
 function focusTitle(index) {
   const titleElement = titleContainer.children[index];
+  titleContainer.getElementsByClassName('project-title project-title_selected')[0].setAttribute('class', 'project-title');
   titleContainer.scrollTo({ top: index * 35, behavior: 'smooth' });
   titleElement.setAttribute('class', 'project-title project-title_selected');
-  if (index > 0) titleContainer.children[Number(index) - 1].setAttribute('class', 'project-title');
-  if (index + 1 < [projects.length]) titleContainer.children[Number(index) + 1].setAttribute('class', 'project-title');
 }
 
 setProjects();

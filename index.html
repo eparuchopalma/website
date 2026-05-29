@@ -12,7 +12,7 @@
 <body>
   <main class="scroll-container">
 
-    <header class="header scroll-section">
+    <header class="header">
       <h1 class="header__title">
         <span class="header__title_secondary header__title_left">EDGAR</span>
         PARUCHO
@@ -34,26 +34,30 @@
       </picture>
     </header>
 
-    <section class="section scroll-section" id="projects">
+    <section class="section" id="projects">
       <h2 class="section__title">My Projects</h2>
-      <ul id="title-container" class="project-title-container"></ul>
-      <ul id="project-image-container" class="project-image-container"></ul>
-      <p id="project-description" class="project-description"></p>
-      <div id="label-container" class="label-container label-container_mt"></div>
-      <ul id="link-container" class="link-container">
-        <li>
-          <a href="#" class="link">Demo</a>
-        </li>
-        <li>
-          <a href="#" class="link">Code</a>
-        </li>
-        <li>
-          <a href="#" class="link">Design</a>
-        </li>
-      </ul>
+      <div class="flex-container">
+        <ul id="title-container" class="project-title-container"></ul>
+        <div class="project-container">
+          <ul id="project-image-container" class="project-image-container"></ul>
+          <p id="project-description" class="project-description"></p>
+          <div id="label-container" class="label-container label-container_mt"></div>
+          <ul id="link-container" class="link-container">
+            <li>
+              <a href="#" class="link">Demo</a>
+            </li>
+            <li>
+              <a href="#" class="link">Code</a>
+            </li>
+            <li>
+              <a href="#" class="link">Design</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="section scroll-section">
+    <section class="section">
       <h2 class="section__title">About Me</h2>
       <div class="section__flex">
         <div class="section__bg">
@@ -77,7 +81,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section section_centered scroll-section">
+    <section id="contact" class="section section_centered">
       <div>
         <h2 class="section__title">Thank you</h2>
         <p>for your priceless time</p>
