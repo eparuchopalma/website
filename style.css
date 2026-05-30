@@ -332,7 +332,6 @@ a {
 .project-description {
   height: 6vh;
   margin: 12px 0;
-  text-align: center;
 }
 
 .project-description_faded {
@@ -472,8 +471,9 @@ a {
   }
 
   .picture-container {
+    margin: 12px;
     align-self: stretch;
-    max-height: 100vh;
+    max-height: 96vh;
     justify-self: end;
     grid-row: 1 / 5;
     aspect-ratio: 9 / 16;
@@ -481,6 +481,7 @@ a {
 
   .section {
     grid-template-columns: 1fr 2fr;
+    overflow: hidden;
   }
 
   .section__title {
@@ -526,6 +527,12 @@ a {
     max-height: 55vh;
   }
 
+}
+
+@media (min-width: 1024px) {
+  .headline {
+    font-size: 12rem;
+  }
 }
 
 @keyframes slide {
