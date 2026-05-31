@@ -151,10 +151,8 @@ function setProjectColors(i) {
   const projectThemeIsDark = projects[i].isDark;
   const projectTitle = titleContainer.children[i];
   const projectSecondaryColor = projects[i].secondaryColor;
-  let style = `background-color: ${projectMainColor}`;
-  if (projectThemeIsDark) style += '; color: white;';
-  console.log(style);
-  
+  let style = `background-color: ${projectMainColor};`;
+  if (projectThemeIsDark) style += 'color: white;';
   projectsSection.setAttribute('style', style);
   projectTitle.setAttribute('style', `background-color: ${projectSecondaryColor}`);
 }

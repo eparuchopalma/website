@@ -205,6 +205,7 @@ a {
   padding: 0 12px;
   display: grid;
   scroll-snap-align: start;
+  overflow: hidden;
 }
 
 .section_column {
@@ -491,7 +492,6 @@ a {
 
   .section {
     grid-template-columns: 1fr 2fr;
-    overflow: hidden;
   }
 
   .section__title {
