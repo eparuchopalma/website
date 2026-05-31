@@ -5,7 +5,7 @@ const titleContainer = document.getElementById('title-container');
 const imageContainer = document.getElementById('project-images-list');
 const description = document.getElementById('project-description');
 const labelContainer = document.getElementById('label-container');
-const links = document.getElementById('link-container');
+const linkContainer = document.getElementById('link-container');
 let indexOnFocus = 0;
 
 async function setProjects() {
@@ -32,6 +32,7 @@ function setProjectText(index) {
   description.setAttribute('class', 'project-description project-description_faded');
   setTimeout(() => {
     setLabels(index);
+    setLinks(index);
     description.textContent = projects[index].description;
     labelContainer.setAttribute('class', 'label-container label-container_mt');
     description.setAttribute('class', 'project-description');
@@ -47,6 +48,20 @@ function setLabels(index) {
     label.appendChild(document.createTextNode(technology));
     label.setAttribute('class', 'label');
     labelContainer.appendChild(label);
+  }
+}
+
+function setLinks(index) {
+  while (linkContainer.firstChild) {
+    linkContainer.removeChild(linkContainer.firstChild);
+  }
+  for (const [linkKey, linkVal] of Object.entries(projects[index].links)) {
+    const anchor = document.createElement('a');
+    anchor.appendChild(document.createTextNode(linkKey));
+    anchor.setAttribute('class', 'link');
+    anchor.setAttribute('target', '_blank');
+    anchor.setAttribute('href', linkVal);
+    linkContainer.appendChild(anchor);
   }
 }
 

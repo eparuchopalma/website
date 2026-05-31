@@ -440,14 +440,17 @@ a {
 }
 
 .link {
-  color: #111;
+  padding: 2px 8px;
+  border-radius: 1px;
+  background-color: #111;
+  color: #fff;
   text-decoration: underline;
   font-size: 1.6rem;
   font-weight: 500;
 }
 
 .link:hover {
-  color: #111;
+  color: #ddd;
 }
 
 @media (min-width: 576px) {
