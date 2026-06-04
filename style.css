@@ -33,10 +33,6 @@ body, button, a {
   font-style: normal;
 }
 
-a {
-  text-decoration: none;
-}
-
 .scroll-container {
   height: 100vh;
   overflow-y: scroll;
@@ -58,6 +54,11 @@ a {
   display: grid;
   text-align: center;
   scroll-snap-align: start;
+}
+
+.lang-link {
+  margin: 0 auto;
+  color: #111;
 }
 
 .headline {
@@ -139,8 +140,9 @@ a {
   padding: 0 12px;
   grid-row: 4;
   display: flex;
-  gap: 12px;
+  align-items: center;
   justify-content: center;
+  gap: 12px;
 }
 
 .cta {
@@ -476,6 +478,7 @@ a {
 
   .header {
     overflow: hidden;
+    position: relative;
   }
 
   .headline {
@@ -485,7 +488,7 @@ a {
   .cta-container {
     justify-content: end;
     padding-bottom: 20px;
-    align-self: end;
+    align-self: center;
   }
 
   .cta {
@@ -493,6 +496,12 @@ a {
     height: 50px;
     padding-top: 10px;
     font-size: 2rem;
+  }
+
+  .lang-link {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
   }
 
   .picture-container {
@@ -523,13 +532,18 @@ a {
 }
 
 @media (min-width: 768px) {
-
+  
   .headline {
     font-size: 8.4rem;
   }
 
   .headline__label {
     font-size: 3rem;
+  }
+
+  .header__paragraph {
+    width: 430px;
+    margin: 0 auto;
   }
 
   .section__title {
