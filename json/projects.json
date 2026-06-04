@@ -33,6 +33,9 @@
     "mobileCover": "assets/lighthouse_mobile.png",
     "stack": ["TypeScript", "React.js", "Node.js", "Express.js", "PostgreSQL", "Sequelize"],
     "links": {
+      "Código (API)": "https://github.com/eparuchopalma/lighthouse-api",
+      "Código (UI)": "https://github.com/eparuchopalma/lighthouse-ui",
+      "Demo": "https://lighthouse-ui-three.vercel.app/"
     },
     "mainColor": "#F1F1F1",
     "secondaryColor": "#202020",
