@@ -467,7 +467,7 @@ body, button, a {
   .picture-container {
     margin: 12px;
     align-self: stretch;
-    max-height: 96vh;
+    max-height: 94vh;
     justify-self: end;
     grid-row: 1 / 5;
     aspect-ratio: 9 / 16;
